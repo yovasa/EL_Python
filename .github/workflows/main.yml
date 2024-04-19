@@ -1,0 +1,35 @@
+name: Control-iot
+
+on: 
+  push:
+    branches: [ main ]
+
+  jobs:
+    build: 
+      runs-on: ubuntu-latest
+
+      steps: 
+        - name: Checckout repo
+          uses: actions/checkout@v4
+          
+        - name: Setup Python
+          uses: actions/setup-python@v5
+          with:
+            python-version: '3.12.2'
+            
+        - name: Run script
+          run: python ./EL_Python/Proyectos/Puerto1.py
+            
+        - name: commit and Push changes
+          uses: stefanzweifel/git-auto-commit-action@v5
+          commit_user_name: Jhonny AS [GitHub Actions]
+          commit_user_email: yovaniplaystore@gmail.com
+          commit_author: Jhonny
+          
+          
+
+          
+        
+        
+    
+  
